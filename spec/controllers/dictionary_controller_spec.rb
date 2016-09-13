@@ -28,7 +28,7 @@ RSpec.describe DictionaryController, type: :controller do
     context "word is in database" do
       it "assigns definitions from database" do
         get :search, { word: "osmosis"}
-        expect(assigns(:response)).to eq(Dictionary.find_by(word: "osmosis").response)
+        expect(assigns(:definitions)).to eq(Dictionary.find_by(word: "osmosis").response)
       end
     end
     

@@ -9,18 +9,21 @@ class DictionaryController < ApplicationController
     
     if Dictionary.find_by(word: @searchword).nil?
       @doc = Nokogiri::XML(open('http://www.dictionaryapi.com/api/v1/references/collegiate/xml/' + @searchword + '?key=dea2bd9d-dce5-4716-86b5-8e4eac96d011')) 
-      @response = @doc.xpath("//dt").to_s
-
-      if @response.empty?
+      @ajaxresponse = @doc.css('dt')
+      @definitions=[]
+      
+      if @ajaxresponse.empty?
         flash.now[:notice] = @searchword + " not found in dictionary."
       else
-        Dictionary.create(word: @searchword, response: @response)
+        @ajaxresponse.each do |definition|
+          @definitions << definition.text.gsub(":", "")
+        end
+        Dictionary.create(word: @searchword, response: @definitions)
       end
+      
     else
-      @response = Dictionary.find_by(word: @searchword).response
+      @definitions = Dictionary.find_by(word: @searchword).response
     end
-    
-    @definitions = clean_up_response(@response.split("<dt>").reject(&:empty?))
 
     render 'index'
   end
