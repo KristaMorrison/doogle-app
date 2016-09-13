@@ -1,3 +1,43 @@
 // Place all the styles related to the Dictionary controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.input_form {
+  text-align: center;
+}
+
+.definitions {
+  margin: auto;
+  width: 75%;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+h1 {
+  font-size: 90pt;
+  margin-bottom: 20px;
+}
+
+#word_input {
+  width: 25%;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+

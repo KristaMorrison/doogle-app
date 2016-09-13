@@ -52,6 +52,7 @@ group :test do
 end
 
 gem 'nokogiri'
+gem 'rails_admin'
 
 gem 'pg'
 

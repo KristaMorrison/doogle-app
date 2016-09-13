@@ -1,8 +1,10 @@
-<h1>Doogle</h1>
-<form action="/dictionary/search">
-  <input type="text" name="word"><br>
-  <input type="submit" value="Doogle Search">
-</form>
+<div class = "input_form">
+  <h1><span class = "blue">D</span><span class = "red">o</span><span class = "yellow">o</span><span class = "blue">g</span><span class = "green">l</span><span class = "red">e</span></h1>
+  <form action="/dictionary/search">
+    <input type="text" name="word" id="word_input"><br>
+    <input type="submit" value="Doogle Search">
+  </form>
+</div>
 
 <div class = 'definitions'>
   <ul>
@@ -10,7 +12,8 @@
       <li><%= definition %></li>
     <% end %>
   </ul>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 </div>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+

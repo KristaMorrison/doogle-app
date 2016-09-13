@@ -15,5 +15,11 @@ RSpec.describe "dictionary/index.html.erb", type: :view do
       click_button "Doogle Search"
       expect(response).to render_template('index')
     end
+    
+    it "lists definitions when word is searched" do
+      fill_in 'word', with: "name"
+      click_button "Doogle Search"
+      expect(page).to have_text('a word or phrase that constitutes the distinctive designation of a person or thing')
+    end
   end
 end
