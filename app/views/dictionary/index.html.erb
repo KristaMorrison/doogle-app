@@ -1,5 +1,16 @@
 <h1>Doogle</h1>
-<%= form_tag( 'dictionary/search', method: 'post') do %>
-  <%= text_field_tag :word %><br>
-  <%= submit_tag "Doogle Search" %>
+<form action="/dictionary/search">
+  <input type="text" name="word"><br>
+  <input type="submit" value="Doogle Search">
+</form>
+
+<div class = 'definitions'>
+  <ul>
+    <% @definitions.each do |definition| %>
+      <li><%= definition %></li>
+    <% end %>
+  </ul>
+</div>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
 <% end %>
