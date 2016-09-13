@@ -10,7 +10,6 @@ RSpec.describe DictionaryController, type: :controller do
   end
   
   describe "GET #search" do
-    
     context "word isn't in database" do
       it "adds word to database" do
         expect(Dictionary.find_by(word: "osmosis")).to be nil
