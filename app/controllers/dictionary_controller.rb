@@ -28,21 +28,4 @@ class DictionaryController < ApplicationController
     render 'index'
   end
   
-  private
-      
-      def clean_up_response(response_array)
-        response_array.each do |str|
-          # remove colon from start
-          str.tr!(":", "")
-          # remove </dt> from end
-          str.chomp!("</dt>")
-          # make <vi> "e.g.", remove </vi> from end
-          str.gsub!(/ <vi>/, ", e.g. ")
-          str.chomp!("</vi>")
-          #remove <it> and </it>
-          str.gsub!(/<it>/, "")
-          str.gsub!(/<\/it>/, "")
-          
-        end
-      end
 end
